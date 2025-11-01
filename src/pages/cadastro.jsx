@@ -4,7 +4,6 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-
 export default function Cadastro() {
   return (
     <div className="page-container">
@@ -15,10 +14,10 @@ export default function Cadastro() {
           <ul>
             <li><Link to="/">Dashboard</Link></li>
             <li><Link to="/pets">Pets</Link></li>
-            <li className="active"><Link to="/cadastro">Cadastro</Link></li>
+            <li><Link to="/cadastro">Cadastro</Link></li>
             <li><Link to="/agenda">Agenda</Link></li>
             <li><Link to="/contatos">Contatos</Link></li>
-            <li><Link to="/configuracoes">Configurações</Link></li>
+            <li className="active"><Link to="/configuracoes">Configurações</Link></li>
             <li className="logout"><FaSignOutAlt /> Sair</li>
           </ul>
         </nav>

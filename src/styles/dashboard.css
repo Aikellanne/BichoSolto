@@ -22,6 +22,11 @@
   padding: 25px 0;
 }
 
+.sidebar a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo {
   width: 200px;
   height: auto;
