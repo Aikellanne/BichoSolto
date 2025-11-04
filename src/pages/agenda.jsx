@@ -25,8 +25,10 @@ export default function Agenda() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
+      <header className="header">
       <h1>Agenda e Lembretes</h1>
       <p>Veja e organize os próximos compromissos dos seus pets.</p>
+      </header>
 
       <ul className="agenda-list">
         <li>💉 Vacina da Luna — 02/11/2025</li>

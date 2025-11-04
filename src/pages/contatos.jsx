@@ -25,8 +25,10 @@ export default function Emergencias() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
+      <header className="header">
       <h1>Contatos de Emergência</h1>
       <p>Clínicas, veterinários e outros serviços importantes.</p>
+      </header>
 
       <div className="contact-list">
         <div className="contact-card">

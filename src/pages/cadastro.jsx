@@ -14,10 +14,10 @@ export default function Cadastro() {
           <ul>
             <li><Link to="/">Dashboard</Link></li>
             <li><Link to="/pets">Pets</Link></li>
-            <li><Link to="/cadastro">Cadastro</Link></li>
+            <li className="active"><Link to="/cadastro">Cadastro</Link></li>
             <li><Link to="/agenda">Agenda</Link></li>
             <li><Link to="/contatos">Contatos</Link></li>
-            <li className="active"><Link to="/configuracoes">Configurações</Link></li>
+            <li><Link to="/configuracoes">Configurações</Link></li>
             <li className="logout"><FaSignOutAlt /> Sair</li>
           </ul>
         </nav>
@@ -25,8 +25,11 @@ export default function Cadastro() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
-      <h1>Cadastrar Novo Pet</h1>
-      <p>Preencha os detalhes do seu novo amigo para começar a cuidar dele.</p>
+      <header className="header">
+        <h1>Cadastrar Novo Pet</h1>
+        <p>Preencha os detalhes do seu novo amigo para começar a cuidar dele.</p>
+      </header>
+
       <form className="addpet-form">
         <div className="form-group">
           <label>Nome do Pet:</label>

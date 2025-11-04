@@ -25,7 +25,9 @@ export default function Configuracoes() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
+      <header className="header">
       <h1>Configurações da Conta</h1>
+      </header>
       <form className="config-form">
         <h3>Informações Básicas</h3>
         <div className="form-group">

@@ -97,7 +97,7 @@
 }
 
 .card .icon {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #394867;
   margin-bottom: 10px;
 }
@@ -105,6 +105,7 @@
 .card h3 {
   color: #212a3e;
   margin-bottom: 5px;
+  font-size: 18px;
 }
 
 .card p {

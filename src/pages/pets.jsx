@@ -28,8 +28,10 @@ export default function Pets() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
-      <h1>Meus Pets</h1>
-      <p>Clique em um pet para ver seu perfil completo, vacinas e medicamentos.</p>
+      <header className="header">
+        <h1>Meus Pets</h1>
+        <p>Clique em um pet para ver seu perfil completo, vacinas e medicamentos.</p>
+      </header>
 
       <div className="pets-list">
         <div className="pet-card">
