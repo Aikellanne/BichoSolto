@@ -1,0 +1,290 @@
+.perfil-container {
+  background-color: #f9f4ed;
+  min-height: 100vh;
+  padding: 30px;
+  color: #212c56;
+}
+
+.perfil-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.voltar {
+  text-decoration: none;
+  color: #ff9900;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.pet-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pet-foto {
+  width: 200px;
+  height: 140px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.pet-text {
+  font-size: 40px;
+  margin: 10px 0 5px;
+  color: #212c56;
+}
+
+.abas {
+  display: flex;
+  gap: 25px;
+  margin: 12px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+.abas button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 8px 0;
+  cursor: pointer;
+  color: #212c56;
+}
+
+.abas .ativa {
+  border-bottom: 3px solid #ff9900;
+  color: #ff9900;
+  font-weight: bold;
+}
+
+.perfil-content {
+  margin-top: 15px;
+}
+
+.info-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-header h2 {
+  color: #212c56;  
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.edit-icon {
+  color: #ffa31a;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  margin-top: -12px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card li {
+  color: #212c56;  
+  font-size: 18px;
+  margin: 10px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.edit-icon, .save-icon, .cancel-icon {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.edit-icon:hover { color: #212c56; }
+.save-icon:hover { color: #28a745; }
+.cancel-icon:hover { color: #e74c3c; }
+
+.edit-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+}
+
+.edit-actions {
+  display: flex;
+  align-items: center;
+}
+
+.foto-upload {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.foto-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trocar-texto {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+.foto-label:hover .trocar-texto {
+  text-decoration: underline;
+  color: #2c3e50;
+}
+
+/* ====== VACINAS ====== */
+.vacinas .info-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.add-vacina {
+  background-color: #ffe5b4;
+  color: #f39c12;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-vacina:hover {
+  background-color: #f39c12;
+  color: white;
+}
+
+/* Lista de vacinas */
+.lista-vacinas {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vacina-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.vacina-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Conteúdo da vacina */
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.vacina-info h3 {
+  color: #212c56;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.vacina-info p {
+  font-size: 16px;
+  margin: 2px 0;
+  color: #333;
+}
+
+.edit-vacina {
+  color: #f39c12;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.edit-vacina:hover {
+  color: #d35400;
+}
+
+/* Diferenciação de status */
+.atrasado {
+  color: red;
+  font-weight: bold;
+}
+
+.vacina-item.atrasada {
+  border-left: 5px solid red;
+}
+
+.vacina-item.concluida {
+  background-color: #e8f6e8;
+  text-decoration: line-through;
+  border-left: 5px solid green;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: .5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

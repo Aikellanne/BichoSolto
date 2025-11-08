@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/pets" element={<Pets />} />
         <Route path="/cadastro" element={<Adicionar />} />
-        <Route path="/pet/:id" element={<Perfil />} />
+        <Route path="/pets/:id" element={<Perfil />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/contatos" element={<Emergencias />} />
         <Route path="/configuracoes" element={<Configuracoes />} />

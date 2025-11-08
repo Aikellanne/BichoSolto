@@ -8,6 +8,13 @@ import cad2 from "../assets/siames.png";
 import cad3 from "../assets/calopsita.jpg";
 
 export default function Pets() {
+
+   const pets = [
+    { id: 1, nome: "Rex 🦖", especie: "Pug", idade: "5 anos", imagem: cad1 },
+    { id: 2, nome: "Luna", especie: "Siamês", idade: "6 meses", imagem: cad2 },
+    { id: 3, nome: "Mel 🍯", especie: "Calopsita", idade: "1 ano", imagem: cad3 },
+  ];
+
   return (
     <div className="page-container">
       {/* Sidebar */}
@@ -29,31 +36,19 @@ export default function Pets() {
       {/* Conteúdo principal */}
       <main className="main-content">
       <header className="header">
-        <h1>Meus Pets</h1>
-        <p>Clique em um pet para ver seu perfil completo, vacinas e medicamentos.</p>
+      <h1>Meus Pets</h1>
+      <p>Clique em um pet para ver seu perfil completo, vacinas e medicamentos.</p>
       </header>
 
       <div className="pets-list">
-        <div className="pet-card">
-          <img src={cad1} alt="REX" />
-          <h3>Rex 🦖</h3>
-          <p>Pug</p>
-          <p>5 anos</p>
-        </div>
-
-        <div className="pet-card">
-          <img src={cad2} alt="Luna" />
-          <h3>Luna</h3>
-          <p>Siamês</p>
-          <p>6 meses</p>
-        </div>
-
-        <div className="pet-card">
-          <img src={cad3} alt="Mel" />
-          <h3>Mel 🍯</h3>
-          <p>Calopsita</p>
-          <p>1 ano</p>
-        </div>
+          {pets.map((pet) => (
+            <Link to={`/pets/${pet.id}`} key={pet.id} className="pet-card">
+              <img src={pet.imagem} alt={pet.nome} />
+              <h3>{pet.nome}</h3>
+              <p>{pet.especie}</p>
+              <p>{pet.idade}</p>
+            </Link>
+          ))}
       </div>
       </main>
     </div>
