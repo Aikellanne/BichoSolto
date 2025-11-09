@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/pets.css";
-import { FaPaw, FaSignOutAlt} from "react-icons/fa";
+import {FaSignOutAlt} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import cad1 from "../assets/pug.jpg";

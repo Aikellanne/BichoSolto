@@ -25,53 +25,59 @@ export default function Cadastro() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
-      <header className="header">
-        <h1>Cadastrar Novo Pet</h1>
-        <p>Preencha os detalhes do seu novo amigo para começar a cuidar dele.</p>
-      </header>
+        <header className="header">
+          <h1>Cadastrar Novo Pet</h1>
+          <p>Preencha os detalhes do seu novo amigo para começar a cuidar dele.</p>
+        </header>
 
-      <form className="addpet-form">
-        <div className="form-group">
-          <label>Nome do Pet:</label>
-          <input type="text" placeholder="" />
-        </div>
+        <form className="addpet-form">
+          <div className="form-row">
+            <div className="form-group">
+              <label>Nome do Pet:</label>
+              <input type="text" placeholder="Ex.: Rex, Luna..." />
+            </div>
 
-        <div className="form-group">
-          <label>Espécie:</label>
-          <select>
-            <option value="cachorro">Cachorro</option>
-            <option value="gato">Gato</option>
-            <option value="outro">Outro</option>
-          </select>
-        </div>
+            <div className="form-group">
+              <label>Espécie:</label>
+              <select>
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label>Raça:</label>
-          <input type="text" placeholder="Ex.: Labrador, Shitzu" />
-        </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Raça:</label>
+              <input type="text" placeholder="Ex.: Labrador, Shitzu" />
+            </div>
 
-        <div className="form-group">
-          <label>Data de Nascimento:</label>
-          <input type="date" placeholder="" />
-        </div>
+            <div className="form-group">
+              <label>Data de Nascimento:</label>
+              <input type="date" />
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label>Idade:</label>
-          <input type="number" placeholder="" />
-        </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Idade:</label>
+              <input type="number" placeholder="Em anos" />
+            </div>
 
-        <div className="form-group">
-          <label>Peso:</label>
-          <input type="text" placeholder="" />
-        </div>
+            <div className="form-group">
+              <label>Peso:</label>
+              <input type="text" placeholder="Ex.: 10 kg" />
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label>Imagem de Perfil:</label>
-          <input type="file" placeholder="" />
-        </div>
+          <div className="form-group">
+            <label>Imagem de Perfil:</label>
+            <input type="file" />
+          </div>
 
-        <button type="submit" className="btn-submit">Cadastrar</button>
-      </form>
+          <button type="submit" className="btn-submit">Cadastrar</button>
+        </form>
       </main>
     </div>
   );

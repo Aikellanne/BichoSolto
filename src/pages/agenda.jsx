@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Agenda() {
+  const compromissos = [
+    { emoji: "💉", titulo: "Vacina da Luna", data: "02/11/2025" },
+    { emoji: "🛁", titulo: "Banho do Thor", data: "04/11/2025" },
+    { emoji: "🐕", titulo: "Consulta da Mel", data: "06/11/2025" },
+  ];
+
   return (
     <div className="page-container">
       {/* Sidebar */}
@@ -25,17 +31,23 @@ export default function Agenda() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
-      <header className="header">
-      <h1>Agenda e Lembretes</h1>
-      <p>Veja e organize os próximos compromissos dos seus pets.</p>
-      </header>
+        <header className="header">
+          <h1>Agenda e Lembretes</h1>
+          <p>Veja e organize os próximos compromissos dos seus pets.</p>
+        </header>
 
-      <ul className="agenda-list">
-        <li>💉 Vacina da Luna — 02/11/2025</li>
-        <li>🛁 Banho do Thor — 04/11/2025</li>
-        <li>🐕 Consulta da Mel — 06/11/2025</li>
-      </ul>
-     </main>
+        <ul className="agenda-list">
+          {compromissos.map((item, index) => (
+            <li key={index} className="agenda-item">
+              <div className="agenda-icon">{item.emoji}</div>
+              <div className="agenda-info">
+                <h3>{item.titulo}</h3>
+                <span>{item.data}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </main>
     </div>
   );
 }
