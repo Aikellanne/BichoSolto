@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/configuracao.css";
 import { FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Configuracoes() {
+  const [nome, setNome] = useState("Jennifer");
+  const [email, setEmail] = useState("jennifer@email.com");
+  const [senha, setSenha] = useState("");
+
+  const handleSalvar = (e) => {
+    e.preventDefault();
+    alert("Alterações salvas com sucesso!");
+  };
+
   return (
     <div className="page-container">
       {/* Sidebar */}
@@ -25,28 +34,46 @@ export default function Configuracoes() {
 
       {/* Conteúdo principal */}
       <main className="main-content">
-      <header className="header">
-      <h1>Configurações da Conta</h1>
-      </header>
-      <form className="config-form">
-        <h3>Informações Básicas</h3>
-        <div className="form-group">
-          <label>Nome do Usuário:</label>
-          <input type="text" placeholder="Seu nome" />
-        </div>
+        <header className="header">
+          <h1>Configurações da Conta</h1>
+          <p>Atualize suas informações de usuário abaixo.</p>
+        </header>
 
-        <div className="form-group">
-          <label>Email:</label>
-          <input type="email" placeholder="email@exemplo.com" />
-        </div>
+        <form className="config-form" onSubmit={handleSalvar}>
+          <h3>Informações do Usuário</h3>
 
-        <div className="form-group">
-          <label>Senha:</label>
-          <input type="password" placeholder="Nova senha" />
-        </div>
+          <div className="form-group">
+            <label>Nome do Usuário:</label>
+            <input 
+              type="text" 
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              placeholder="Seu nome" 
+            />
+          </div>
 
-        <button className="btn-save">Salvar Alterações</button>
-      </form>
+          <div className="form-group">
+            <label>Email:</label>
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email@exemplo.com" 
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Nova Senha:</label>
+            <input 
+              type="password" 
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              placeholder="Digite uma nova senha" 
+            />
+          </div>
+
+          <button className="btn-save">Salvar Alterações</button>
+        </form>
       </main>
     </div>
   );

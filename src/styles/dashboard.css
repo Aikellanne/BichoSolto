@@ -40,11 +40,20 @@
 }
 
 .sidebar nav ul li {
-  padding: 12px 15px;
   margin-bottom: 10px;
   border-radius: 10px;
-  cursor: pointer;
   transition: 0.3s;
+  padding: 0;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .sidebar nav ul li:hover,
@@ -61,18 +70,20 @@
 /* ===== CONTEÚDO PRINCIPAL ===== */
 .main-content {
   flex: 1;
-  padding: 30px 40px;
+  padding: 40px;
   overflow-y: auto;
 }
 
 .header h1 {
   font-size: 1.6rem;
   color: #212c56;
+  margin-top: -5px;
+  margin-bottom: 5px;
 }
 
 .header p {
-  color: #8b8686;
-  margin-top: 5px;
+  color: #b4adad;
+  font-size: 17px;
 }
 
 /* ===== CARDS ===== */

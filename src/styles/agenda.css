@@ -1,41 +1,75 @@
-.header h1 {
-  font-size: 1.6rem;
-  color: #212c56;
+/* ===== FORMULÁRIO DE ADIÇÃO ===== */
+.add-agenda {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.header p {
-  color: #8b8686;
-  margin-top: 5px;
+.add-agenda input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.add-agenda button {
+  background-color: #394867;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-agenda button:hover {
+  background-color: #212a3e;
 }
 
 /* ===== LISTA DE AGENDA ===== */
-.agenda-list {
-  list-style: none;
+.agenda-container {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.agenda-item {
+.agenda-card {
   background-color: #fff;
   border-radius: 15px;
-  padding: 15px 20px;
+  padding: 18px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border-left: 6px solid #f7c94d; /* amarelo lateral */
 }
 
-.agenda-item:hover {
+.agenda-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.agenda-icon {
+.agenda-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.agenda-info input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #facc15;
+}
+
+.agenda-emoji {
   font-size: 1.8rem;
-  margin-right: 15px;
 }
 
 .agenda-info h3 {
@@ -44,7 +78,42 @@
   margin: 0;
 }
 
-.agenda-info span {
+.agenda-info p {
+  margin: 2px 0 0;
   color: #555;
   font-size: 0.9rem;
+}
+
+/* ===== ITEM CONCLUÍDO ===== */
+.concluido {
+  opacity: 0.6;
+}
+
+.concluido h3,
+.concluido p {
+  text-decoration: line-through;
+}
+
+/* ===== BOTÃO DELETAR ===== */
+.btn-delete {
+  background: none;
+  border: none;
+  color: #b23b3b;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-delete:hover {
+  color: #ff4d4d;
+}
+
+/* ===== MENSAGEM ===== */
+.sem-compromissos {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: #394867;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
