@@ -1,15 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/cadastro.css";
 import { FaSignOutAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import axios from "axios";
 
 export default function Cadastro() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    nome: "",
+    especie: "cachorro",
+    raca: "",
+    dataNasc: "",
+    idade: "",
+    peso: "",
+  });
+
+  const [imagem, setImagem] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleImage = (e) => {
+    setImagem(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = new FormData();
+
+      // adiciona todos campos do form
+      Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key]);
+      });
+
+      // adiciona imagem
+      if (imagem) {
+        data.append("imagem", imagem);
+      }
+
+      // envia para o backend
+      const res = await axios.post("http://localhost:3001/pets", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      // backend retorna:  res.json({ message:"...", id: result.insertId })
+      const newId = res.data.id;
+
+      // redireciona para o perfil
+      navigate(`/pets/${newId}`);
+
+    } catch (err) {
+      console.log(err);
+      alert("Erro ao cadastrar pet.");
+    }
+  };
+
   return (
     <div className="page-container">
-      {/* Sidebar */}
+
       <aside className="sidebar">
         <img src={logo} alt="Logo Bicho Solto" className="logo" />
+
         <nav>
           <ul>
             <li><Link to="/">Dashboard</Link></li>
@@ -23,23 +79,34 @@ export default function Cadastro() {
         </nav>
       </aside>
 
-      {/* Conteúdo principal */}
       <main className="main-content">
+
         <header className="header">
           <h1>Cadastrar Novo Pet</h1>
-          <p>Preencha os detalhes do seu novo amigo para começar a cuidar dele.</p>
+          <p>Preencha os detalhes do seu novo amigo.</p>
         </header>
 
-        <form className="addpet-form">
+        <form className="addpet-form" onSubmit={handleSubmit}>
+
           <div className="form-row">
             <div className="form-group">
               <label>Nome do Pet:</label>
-              <input type="text" placeholder="Ex.: Rex, Luna..." />
+              <input
+                name="nome"
+                type="text"
+                value={formData.nome}
+                onChange={handleChange}
+                required
+              />
             </div>
 
             <div className="form-group">
               <label>Espécie:</label>
-              <select>
+              <select
+                name="especie"
+                value={formData.especie}
+                onChange={handleChange}
+              >
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="outro">Outro</option>
@@ -50,34 +117,60 @@ export default function Cadastro() {
           <div className="form-row">
             <div className="form-group">
               <label>Raça:</label>
-              <input type="text" placeholder="Ex.: Labrador, Shitzu" />
+              <input
+                name="raca"
+                type="text"
+                value={formData.raca}
+                onChange={handleChange}
+              />
             </div>
 
             <div className="form-group">
               <label>Data de Nascimento:</label>
-              <input type="date" />
+              <input
+                name="dataNasc"
+                type="date"
+                value={formData.dataNasc}
+                onChange={handleChange}
+              />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>Idade:</label>
-              <input type="number" placeholder="Em anos" />
+              <input
+                name="idade"
+                type="text"
+                value={formData.idade}
+                onChange={handleChange}
+              />
             </div>
 
             <div className="form-group">
               <label>Peso:</label>
-              <input type="text" placeholder="Ex.: 10 kg" />
+              <input
+                name="peso"
+                type="number"
+                value={formData.peso}
+                onChange={handleChange}
+              />
             </div>
           </div>
 
           <div className="form-group">
             <label>Imagem de Perfil:</label>
-            <input type="file" />
+            <input
+              name="imagem"
+              type="file"
+              accept="image/*"
+              onChange={handleImage}
+            />
           </div>
 
           <button type="submit" className="btn-submit">Cadastrar</button>
         </form>
+
       </main>
     </div>
   );

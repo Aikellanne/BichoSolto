@@ -1,7 +1,7 @@
 /* ===== CONTEÚDO PRINCIPAL ===== */
 .pets-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 30px;
 }
@@ -17,6 +17,7 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  position: relative;
 }
 
 .pet-card:hover {
@@ -25,9 +26,9 @@
 }
 
 .pet-card img {
-  height: 65%;
+  height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
 }
 
@@ -39,6 +40,28 @@
 
 .pet-card p{
   margin-bottom: 5px;
-  font-size: 17px;
-   color: #333;
+  font-size: 16px;
+  color: #333;
+}
+
+.pet-card strong{
+  color: #212c56;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #d93636;
 }

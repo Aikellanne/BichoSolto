@@ -1,25 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/pets.css";
-import {FaSignOutAlt} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaSignOutAlt, FaTrash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import cad1 from "../assets/pug.jpg";
-import cad2 from "../assets/siames.png";
-import cad3 from "../assets/calopsita.jpg";
+import axios from "axios";
+
+// Função para capitalizar a primeira letra
+const capitalize = (s) => {
+  if (typeof s !== 'string') return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
 
 export default function Pets() {
+  const [pets, setPets] = useState([]);
+  const navigate = useNavigate();
 
-   const pets = [
-    { id: 1, nome: "Rex 🦖", especie: "Pug", idade: "5 anos", imagem: cad1 },
-    { id: 2, nome: "Luna", especie: "Siamês", idade: "6 meses", imagem: cad2 },
-    { id: 3, nome: "Mel 🍯", especie: "Calopsita", idade: "1 ano", imagem: cad3 },
-  ];
+  useEffect(() => {
+    axios.get("http://localhost:3001/pets")
+      .then(res => setPets(res.data))
+      .catch(err => console.log("Erro ao carregar pets:", err));
+  }, []);
+
+  const deletarPet = async (id) => {
+    if (!window.confirm("Tem certeza que deseja excluir?")) return;
+
+    try {
+      await axios.delete(`http://localhost:3001/pets/${id}`);
+      setPets(pets.filter(p => p.id !== id));
+    } catch (err) {
+      console.log("Erro ao deletar:", err);
+    }
+  };
 
   return (
     <div className="page-container">
-      {/* Sidebar */}
+
+      {/* SIDEBAR */}
       <aside className="sidebar">
         <img src={logo} alt="Logo Bicho Solto" className="logo" />
+
         <nav>
           <ul>
             <li><Link to="/">Dashboard</Link></li>
@@ -33,24 +52,51 @@ export default function Pets() {
         </nav>
       </aside>
 
-      {/* Conteúdo principal */}
+      {/* CONTEÚDO PRINCIPAL */}
       <main className="main-content">
-      <header className="header">
-      <h1>Meus Pets</h1>
-      <p>Clique em um pet para ver seu perfil completo, vacinas e medicamentos.</p>
-      </header>
+        <header className="header">
+          <h1>Meus Pets</h1>
+          <p>Clique em um pet para ver seu perfil completo, vacinas e medicamentos.</p>
+        </header>
 
-      <div className="pets-list">
+        <div className="pets-list">
           {pets.map((pet) => (
-            <Link to={`/pets/${pet.id}`} key={pet.id} className="pet-card">
-              <img src={pet.imagem} alt={pet.nome} />
+            <div 
+              className="pet-card" 
+              key={pet.id}
+              onClick={() => navigate(`/pets/${pet.id}`)} // abre o perfil
+            >
+
+              {/* Botão Delete - não entra no clique do card */}
+              <button
+                className="delete-btn"
+                onClick={(e) => {
+                  e.stopPropagation(); // evita abrir o perfil ao clicar no X
+                  deletarPet(pet.id);
+                }}
+              >
+                <FaTrash />
+              </button>
+
+              {/* Imagem do pet */}
+              <img
+                src={
+                  pet.imagem
+                    ? `http://localhost:3001/uploads/${pet.imagem}`
+                    : "https://via.placeholder.com/150"
+                }
+                alt={pet.nome}
+              />
+
               <h3>{pet.nome}</h3>
-              <p>{pet.especie}</p>
-              <p>{pet.idade}</p>
-            </Link>
+              <p><strong>Espécie: </strong>{capitalize(pet.especie)}</p>
+              <p><strong>Idade: </strong>{pet.idade}</p>
+
+            </div>
           ))}
-      </div>
+        </div>
       </main>
+
     </div>
   );
 }
